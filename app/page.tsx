@@ -30,13 +30,12 @@ interface GraphData {
 }
 
 export default function Home() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [playlistUrl, setPlaylistUrl] = useState("");
   const [videoData, setVideoData] = useState<VideoData[]>([]);
   const [graphData, setGraphData] = useState<GraphData[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [users, setUsers] = useState<any>(null);
+  const [users, setUsers] = useState<unknown>(null);
 
   // Mock login function
   const auth = getAuth(app);
@@ -46,12 +45,9 @@ export default function Home() {
       setIsLoading(false);
       setUsers(user);
 
-      if (!user) {
-        setIsLoggedIn(false);
+      if (!users) {
         window.location.href = "/signup"; // Manual redirect without useRouter
-      } else {
-        setIsLoggedIn(true);
-      }
+      } 
     });
 
     return () => unsubscribe();
