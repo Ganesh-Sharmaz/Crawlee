@@ -1,7 +1,10 @@
 {
   "functions": {
-    "api/*": {
-      "includeFiles": ["node_modules/playwright/**/*"]
+    "api/scrape-playlist": {
+      "includeFiles": [
+        "node_modules/playwright/**/*",
+        "node_modules/@crawlee/**/*"
+      ]
     }
   }
 }
