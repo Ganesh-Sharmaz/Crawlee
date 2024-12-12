@@ -23,6 +23,7 @@ export default function SignUpPage() {
     setError(null);
     try {
       await signInWithPopup(auth, provider);
+      console.log("is working")
       router.push("/"); // Redirect to dashboard
     } catch (error) {
       

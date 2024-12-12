@@ -17,6 +17,8 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { app } from "@/lib/firebaseConfig";
 import Logout from "@/components/LogOut";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+
 
 interface VideoData {
   title: string;
@@ -36,6 +38,9 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [users, setUsers] = useState<unknown>(null);
+  const router = useRouter();
+
+
 
   // Mock login function
   const auth = getAuth(app);
@@ -43,10 +48,11 @@ export default function Home() {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setIsLoading(false);
-      setUsers(user);
+      
+      
 
-      if (!users) {
-        window.location.href = "/signup"; // Manual redirect without useRouter
+      if (!user) {
+        router.push("/signup") // Manual redirect without useRouter
       } 
     });
 

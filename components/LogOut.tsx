@@ -1,23 +1,25 @@
 // pages/logout.tsx
-
-
+"use-client"
+import { useRouter } from 'next/navigation';
 import { FC } from 'react';
 import { getAuth, signOut } from 'firebase/auth';
 import { app } from '@/lib/firebaseConfig';
 
 
+
 const Logout: FC = () => {
   const auth = getAuth(app)
 
+  const router = useRouter(); // Router for navigation
+
   const handleLogout = async () => {
     try {
-      await signOut(auth);
-      // Redirect to home or login page
-      window.location.href("/signup");
+      await signOut(auth); // Sign out from Firebase
+      router.push('/signup'); // Client-side navigation
     } catch (error) {
       console.error('Error signing out: ', error);
     }
-  };
+  }
 
   return (
     <div>
