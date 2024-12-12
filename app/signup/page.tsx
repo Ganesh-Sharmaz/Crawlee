@@ -24,9 +24,9 @@ export default function SignUpPage() {
     try {
       await signInWithPopup(auth, provider);
       router.push("/"); // Redirect to dashboard
-    } catch (err: unknown) {
-      // @ts-ignore
-      console.error("Error signing up: ", err.message);
+    } catch (error) {
+      
+      
       setError("Sign up failed. Please try again.");
     } finally {
       setIsLoading(false);
