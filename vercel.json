@@ -1,7 +1,0 @@
-{
-  "functions": {
-    "api/scrape-playlist": {
-      "includeFiles": "node_modules/playwright"
-    }
-  }
-}
