@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Loader2, ChevronRight } from "lucide-react";
+import { Loader2} from "lucide-react";
 import {
   LineChart,
   Line,
@@ -16,6 +16,7 @@ import {
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { app } from "@/lib/firebaseConfig";
 import Logout from "@/components/LogOut";
+import Image from "next/image";
 
 interface VideoData {
   title: string;
@@ -161,7 +162,7 @@ export default function Home() {
                     key={index}
                     className="flex items-center p-4 hover:bg-zinc-800 transition-colors"
                   >
-                    <img
+                    <Image
                       src={video.thumbnail}
                       alt={video.title}
                       className="w-20 h-20 object-cover rounded-lg mr-4"

@@ -3,7 +3,6 @@
 
 import { FC } from 'react';
 import { getAuth, signOut } from 'firebase/auth';
-import { useRouter } from 'next/router';
 import { app } from '@/lib/firebaseConfig';
 
 
